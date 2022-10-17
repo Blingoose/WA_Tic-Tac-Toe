@@ -100,7 +100,7 @@ h1 {
   color: var(--secondary-clr);
   transition: all 0.3s ease-in-out;
 }
-@media screen and (max-width: 1300px) and (min-height: 400px) {
+@media screen and (max-width: 1200px) and (min-height: 400px) {
   .board {
     width: 330px;
     height: 330px;
