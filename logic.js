@@ -7,37 +7,38 @@ const pO = "O";
 const pX = "X";
 let currentPlayer = pX;
 let empty = Array(9).fill(null);
+const winCombination = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
 
-const gameStart = () => {
-  setTimeout(() => {
-    msg_txt.innerText = "Player X turn";
-  }, 1000);
-
-  setTimeout(() => {
-    msg_txt.innerText = "";
-  }, 2500);
-
-  boxes.forEach((box) => {
-    box.addEventListener("click", choosenBox);
-  });
-};
-
-const gameStop = () => {
-  boxes.forEach((box) => {
-    box.removeEventListener("click", choosenBox);
-  });
-};
+gameStart();
 
 reset.addEventListener("click", resetGame);
 
-function resetGame() {
+function gameStart() {
+  setTimeout(() => {
+    msg_txt.innerText = "Player X turn";
+  }, 500);
+
+  setTimeout(() => {
+    msg_txt.innerText = "";
+    boxes.forEach((box) => {
+      box.addEventListener("click", choosenBox);
+    });
+  }, 2000);
+}
+
+function gameStop() {
   boxes.forEach((box) => {
-    box.innerHTML = "";
+    box.removeEventListener("click", choosenBox);
   });
-  empty = Array(9).fill(null);
-  msg_txt.innerText = "";
-  currentPlayer = pX;
-  gameStart();
 }
 
 function choosenBox(e) {
@@ -59,17 +60,6 @@ function choosenBox(e) {
   }
 }
 
-const winCombination = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-];
-
 function playerWon() {
   for (const combo of winCombination) {
     let [a, b, c] = combo;
@@ -80,4 +70,13 @@ function playerWon() {
   return false;
 }
 
-gameStart();
+function resetGame() {
+  gameStop();
+  setTimeout(gameStart, 500);
+  boxes.forEach((box) => {
+    box.innerHTML = "";
+  });
+  empty = Array(9).fill(null);
+  msg_txt.innerText = "";
+  currentPlayer = pX;
+}
