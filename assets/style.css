@@ -53,7 +53,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(40px + (70 - 14) * ((100vw - 500px) / (1400 - 300)));
+  font-size: calc(55px + (70 - 14) * ((100vw - 400px) / (1400 - 300)));
   border: 2px solid var(--secondary-clr);
   color: var(--tertiary-clr);
 }
