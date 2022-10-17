@@ -100,21 +100,22 @@ h1 {
   color: var(--secondary-clr);
   transition: all 0.3s ease-in-out;
 }
-@media screen and (max-width: 900px) and (min-height: 501px) {
+
+@media screen and (max-height: 700px) {
   .board {
-    width: 330px;
-    height: 330px;
+    width: 300px;
+    height: 300px;
   }
   .box {
-    height: 110px;
-    width: 110px;
-    border: 2px solid var(--secondary-clr);
+    height: 100px;
+    width: 100px;
+    border: 1px solid var(--secondary-clr);
   }
   .reset {
     margin-top: 5px;
   }
 }
-@media screen and (max-width: 1300px) {
+@media screen and (min-height: 701px) and (max-width: 1199px) {
   .board {
     width: 300px;
     height: 300px;
@@ -129,7 +130,7 @@ h1 {
   }
 }
 
-@media (orientation: landscape) and (max-height: 500px) {
+@media (orientation: landscape) and (max-height: 400px) {
   h1 {
     font-size: 24px;
     margin-bottom: 10px;
